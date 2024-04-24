@@ -9,6 +9,25 @@ public class mainProgram {
         // as a parameter
 
         Scanner scan = new Scanner(System.in);
+        birdDatabase birds = new birdDatabase(scan);
+
+        while (true) {
+            System.out.print("? ");
+
+            String command = scan.nextLine();
+
+            if (command.equalsIgnoreCase("quit")) {
+                break;
+            } else if (command.equalsIgnoreCase("add")) {
+                birds.add();
+            } else if (command.equalsIgnoreCase("observation")) {
+                birds.addObservation();
+            } else if (command.equalsIgnoreCase("all")) {
+                System.out.println(birds);
+            } else if (command.equalsIgnoreCase("one")) {
+                birds.printOne();
+            }
+        }
 
     }
 
