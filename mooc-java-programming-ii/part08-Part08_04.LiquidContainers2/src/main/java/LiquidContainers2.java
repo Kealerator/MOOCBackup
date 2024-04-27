@@ -20,7 +20,7 @@ public class LiquidContainers2 {
             if (input.equals("quit")) {
                 break;
             }
-
+//
             String[] pieces = input.split(" ");
             String command = pieces[0];
             int amount = Integer.valueOf(pieces[1]);
