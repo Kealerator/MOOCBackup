@@ -51,4 +51,17 @@ public class SimpleDate {
         return this.year - other.year - yearRemoved;
     }
 
+    @Override
+    public int hashCode() {
+        
+        return this.day + this.month + this.year + this.toString().hashCode();
+    }
+
+   
+
+    
+
+    // Implement the calculation of the hash in way that there are as few similar
+    // hashes as possible between the years 1900 and 2100.
+
 }
