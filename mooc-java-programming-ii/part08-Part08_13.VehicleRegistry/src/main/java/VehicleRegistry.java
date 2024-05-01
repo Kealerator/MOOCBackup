@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class VehicleRegistry {
-    HashMap<LicensePlate, String> VehicleRegistry = new HashMap<>();
+    private HashMap<LicensePlate, String> VehicleRegistry = new HashMap<>();
 
     public VehicleRegistry() {
     }
@@ -16,9 +16,15 @@ public class VehicleRegistry {
          * If the license already has an owner attached, the method returns false and
          * does nothing.
          */
+        String existingOwner = VehicleRegistry.get(licensePlate);
 
-        this.VehicleRegistry.put(licensePlate, ownerName);
-        return false;
+        if (existingOwner == null) {
+            this.VehicleRegistry.put(licensePlate, ownerName);
+            return true;
+        } else if (existingOwner != null) {
+            
+        }
+        
 
     }
 
