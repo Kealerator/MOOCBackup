@@ -69,6 +69,7 @@ public class ChangeHistory {
         return this.sumValue / historyLog.size();
     }
 
+    @Override
     public String toString() {
         // returns the string representation of the change history. The string
         // representation provided by the ArrayList class is sufficient.

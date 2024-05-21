@@ -2,31 +2,19 @@
 public class Main {
 
     public static void main(String[] args) {
-        ProductWarehouse juice = new ProductWarehouse("Juice", 1000.0);
-        juice.addToWarehouse(1000.0);
+        // the usual:
+        ProductWarehouseWithHistory juice = new ProductWarehouseWithHistory("Juice", 1000.0, 1000.0);
         juice.takeFromWarehouse(11.3);
-        System.out.println(juice.getName());
+        System.out.println(juice.getName()); // Juice
         juice.addToWarehouse(1.0);
-        System.out.println(juice);
+        System.out.println(juice); // Juice: balance = 989.7, space left 10.3
 
-        ChangeHistory testLog = new ChangeHistory();
-        testLog.add(1.5);
-        testLog.add(2.7);
-        testLog.add(3.7);
-        testLog.add(7.3);
-        testLog.add(4.7);
+        // etc
 
-        System.out.println(testLog);
-        System.out.println("Max value: " + testLog.maxValue());
-        System.out.println("Min value: " + testLog.minValue());
-        System.out.println("Avg value: " + testLog.average());
-        
-        testLog.clear();
-        
-        System.out.println(testLog);
-        System.out.println("Max value: " + testLog.maxValue());
-        System.out.println("Min value: " + testLog.minValue());
-        System.out.println("Avg value: " + testLog.average());    
+        // however, history() still doesn't work properly:
+        System.out.println(juice.history()); // [1000.0]
+        // so we only get the initial state of the history set by the constructor...
+
     }
 
 }
