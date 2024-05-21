@@ -1,10 +1,7 @@
 import java.util.ArrayList;
 
 public class ChangeHistory {
-    private ArrayList<Double> historyLog;
-    private double maxValue = 0.0;
-    private double minValue = 0.0;
-    private double sumValue = 0.0;
+    private ArrayList<Double> historyLog;   
 
     public ChangeHistory() {
         this.historyLog = new ArrayList<>();
@@ -13,20 +10,7 @@ public class ChangeHistory {
     public void add(double status) {
         // adds provided status as the latest amount to remember in the change history.
 
-        if (this.historyLog.size() == 0) {
-
-            this.maxValue = status;
-            this.minValue = status;
-
-        } else if (status > this.maxValue) {
-            this.maxValue = status;
-        } else if (status < this.minValue) {
-            this.minValue = status;
-        }
-
-        this.historyLog.add(status);
-
-        sumValue += status;
+        this.historyLog.add(status);        
 
     }
 
@@ -43,7 +27,15 @@ public class ChangeHistory {
             return 0;
         }
 
-        return this.maxValue;
+        double max = 0;
+
+        for (Double logEntry : historyLog) {
+            if (max < logEntry) {
+                max = logEntry;
+            }
+        }
+
+        return max;
     }
 
     public double minValue() {
@@ -54,7 +46,15 @@ public class ChangeHistory {
             return 0;
         }
 
-        return this.minValue;
+        double min = this.maxValue();
+
+        for (Double logEntry : historyLog) {
+            if (min > logEntry) {
+                min = logEntry;
+            }
+        }
+
+        return min;
 
     }
 
@@ -66,7 +66,13 @@ public class ChangeHistory {
             return 0;
         }
 
-        return this.sumValue / historyLog.size();
+        double sum = 0;
+
+        for (Double logEntry : historyLog) {
+            sum += logEntry;
+        }
+
+        return sum / historyLog.size();
     }
 
     @Override
