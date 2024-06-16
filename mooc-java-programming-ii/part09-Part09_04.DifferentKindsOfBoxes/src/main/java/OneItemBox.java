@@ -6,6 +6,7 @@ public class OneItemBox extends Box {
     private ArrayList<Item> listOfItems;
 
     public OneItemBox() {
+        super();
         this.listOfItems = new ArrayList<>();
     }
 
